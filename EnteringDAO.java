@@ -38,12 +38,13 @@ public class EnteringDAO {
 		}
 		
 //		모두 다 입력되었으면 저장한다.
+
 		if(flag) {
 
 			try {
 			Connection conn = DBUtil.getMySQLConnection();
-			String sql = "insert into quiz (quiz, answer, wrong1, wrong2, wrong3, "
-					+ " quizPassword) values (?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO quiz(quiz, answer, wrong1, wrong2, wrong3, quizpassword) "
+					+ "VALUES(?, ?, ?, ?, ?, ?)";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getQuiz());
 			pstmt.setString(2, vo.getAnswer());
@@ -62,6 +63,7 @@ public class EnteringDAO {
 		
 		}
 		return flag;
+		
 		
 		
 		
